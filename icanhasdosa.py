@@ -1,8 +1,10 @@
 from selenium import webdriver as wd 
 from selenium.common.exceptions import NoSuchElementException
-import chromedriver
+import os
 
-wd = wd.Chrome()
+PATH = os.getcwd() + '/chromedriver'
+
+wd = wd.Chrome(PATH)
 wd.implicitly_wait(10)
 
 wd.get("https://suryadarshinicom.wixsite.com/sdhome")
@@ -15,8 +17,3 @@ while(True):
         break
     except NoSuchElementException:
         print("Link Not Found")
-
-
-
-
-
