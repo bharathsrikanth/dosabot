@@ -3,13 +3,17 @@ from selenium.common.exceptions import NoSuchElementException
 import os
 
 PATH = os.getcwd() + '/chromedriver'
+SITE_HOME = "https://suryadarshinicom.wixsite.com/sdhome"
+WAIT_TIME_SECS = 10
 
 wd = wd.Chrome(PATH)
-wd.implicitly_wait(10)
+wd.implicitly_wait(WAIT_TIME_SECS)
 
-wd.get("https://suryadarshinicom.wixsite.com/sdhome")
+wd.get(SITE_HOME)
 
-while(True):
+success = False
+
+while not success:
     try: 
         accept_link = wd.find_element_by_link_text("I ACCEPT")
         accept_link.click()
